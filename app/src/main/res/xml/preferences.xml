@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SeekBarPreference
+        android:key="keyboard_height"
+        android:title="Размер на клавиатурата"
+        android:summary="Плъзни, за да промениш височината"
+        android:defaultValue="60"
+        android:min="40"
+        android:max="120"
+        android:persistent="true" />
+</PreferenceScreen>
