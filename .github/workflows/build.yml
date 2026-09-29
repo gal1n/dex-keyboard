@@ -18,9 +18,19 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Prepare Android SDK
+      - name: Install Android SDK command-line tools
         run: |
-          yes | sdkmanager --licenses >/dev/null || true
+          mkdir -p "$HOME/android-sdk/cmdline-tools"
+          curl -fsSL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o /tmp/cmdline-tools.zip
+          unzip -q /tmp/cmdline-tools.zip -d /tmp/android-cmd
+          mv /tmp/android-cmd/cmdline-tools "$HOME/android-sdk/cmdline-tools/latest"
+          echo "ANDROID_HOME=$HOME/android-sdk" >> "$GITHUB_ENV"
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "$HOME/android-sdk/platform-tools" >> "$GITHUB_PATH"
+
+      - name: Accept licenses and install SDK
+        run: |
+          yes | sdkmanager --licenses >/dev/null
           sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
@@ -37,7 +47,7 @@ jobs:
         run: |
           test -s app/build/outputs/apk/debug/app-debug.apk
           sha256sum app/build/outputs/apk/debug/app-debug.apk
-          $ANDROID_HOME/build-tools/35.0.0/apksigner verify --verbose app/build/outputs/apk/debug/app-debug.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose app/build/outputs/apk/debug/app-debug.apk
 
       - uses: actions/upload-artifact@v4
         with:
