@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:keyBackground="@color/key_bg"
-    android:keyTextColor="@color/black"
+    android:keyTextColor="@color/key_text"
     android:keyTextSize="25sp" />
