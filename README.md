@@ -18,3 +18,6 @@ The locally validated build has passed:
 - `gradle clean test`
 - `gradle assembleDebug`
 - APK signature verification (v2)
+
+
+<!-- S8 DeX compatibility build marker -->
