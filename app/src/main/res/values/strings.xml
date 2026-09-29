@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DEX Keyboard</string>
+    <string name="subtype_english">English QWERTY</string>
+    <string name="subtype_bulgarian">Български QWERTY</string>
+    <string name="enable_keyboard">Enable keyboard</string>
+    <string name="select_keyboard">Select keyboard</string>
+    <string name="note">This is a real Android input method. On Samsung DeX, floating and resize behavior can depend on the One UI/DeX version.</string>
+</resources>
