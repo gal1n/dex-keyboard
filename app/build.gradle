@@ -6,16 +6,15 @@ android {
     namespace "com.gal1n.dexkeyboard"
     compileSdk 35
     defaultConfig {
-        applicationId "com.gal1n.dexkeyboard.s8dex"
+        applicationId "com.gal1n.dexkeyboard.installtest"
         minSdk 24
-        targetSdk 24
-        versionCode 4
-        versionName "1.3"
+        targetSdk 28
+        versionCode 1
+        versionName "1.0"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
@@ -23,8 +22,5 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions { jvmTarget = "17" }
-    testOptions { unitTests.returnDefaultValues = true }
 }
-dependencies {
-    testImplementation "junit:junit:4.13.2"
-}
+dependencies {}
