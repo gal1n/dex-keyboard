@@ -30,6 +30,12 @@ class DexKeyboardService : InputMethodService() {
         layoutMode = if (prefs.getBoolean(KEY_BG, false)) Layout.BULGARIAN else Layout.ENGLISH
     }
 
+    // DeX/landscape editors can otherwise trigger Android's fullscreen extract UI.
+    // Keep the real editor visible behind the IME so the user always sees the text field.
+    override fun onEvaluateFullscreenMode(): Boolean = false
+
+    override fun onEvaluateInputViewShown(): Boolean = true
+
     override fun onCreateInputView(): View {
         root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
