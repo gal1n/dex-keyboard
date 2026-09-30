@@ -1,7 +1,7 @@
 name: Build DEX Keyboard APK
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "fix/minimal-ime-only-20260930"]
   workflow_dispatch:
 
 permissions:
