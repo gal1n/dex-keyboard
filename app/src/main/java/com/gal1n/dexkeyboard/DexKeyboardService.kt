@@ -30,6 +30,10 @@ class DexKeyboardService : InputMethodService() {
         layoutMode = if (prefs.getBoolean(KEY_BG, false)) Layout.BULGARIAN else Layout.ENGLISH
     }
 
+    // Keep the underlying application/editor visible while typing.
+    // This only disables Android's fullscreen extract editor; all keyboard behavior stays unchanged.
+    override fun onEvaluateFullscreenMode(): Boolean = false
+
     override fun onCreateInputView(): View {
         root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
